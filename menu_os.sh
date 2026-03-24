@@ -45,7 +45,7 @@ do
 
         4)
            if [ -f ~/EPNro1/salida/"$FILENAME".txt ]; then
-                sort -k4  -n  -r ~/EPNro1/salida/"$FILENAME".txt | head -10
+                sort -k5  -n  -r ~/EPNro1/salida/"$FILENAME".txt | head -10
            fi
            ;;
 
