@@ -1,6 +1,7 @@
 #!/bin/bash
 
 parametro="$1"
+opcion=0
 
 while [ "$opcion" -ne 6 ]; 
 do
