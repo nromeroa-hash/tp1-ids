@@ -1,10 +1,7 @@
+  GNU nano 7.2                                                                                                                                        menu_os.sh *                                                                                                                                                
 #!/bin/bash
 
-if [ "$1" = "-d" ]; then
-    rm -rf ~/EPNro1
-    pkill -f consolidar.sh
-    exit 0
-fi
+parametro = "$1"
 
 while [ "$opcion" -ne 6 ]; 
 do
@@ -27,11 +24,17 @@ do
 
         2)
            if [ ! -d ~/EPNro1 ]; then
-                echo "Para realizar esta opción primero debe seleccionar la opción 1"
+               echo "Para realizar esta opción primero debe seleccionar la opción 1"
            else
+  
+                if [ ! -f ~/EPNro1/consolidar.sh ]; then
+                    cp consolidar.sh ~/EPNro1/
+                    chmod +x ~/EPNro1/consolidar.sh
+                fi
+
                 echo "Corriendo proceso"
-                nohup ~/EPNro1/consolidar.sh &
-           fi 
+                nohup ~/EPNro1/consolidar.sh > /dev/null 2>&1 &
+           fi
            ;;
 
         3)
@@ -58,3 +61,8 @@ do
     esac
 done
 
+if [ "$parametro" = "-d" ]; then
+    echo "Eliminando entorno..."
+    rm -rf ~/EPNro1
+    pkill -f consolidar.sh
+fi
