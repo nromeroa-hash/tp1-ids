@@ -2,7 +2,7 @@
 
 while true; 
 do 
-   cd ~/EPNro1/entrada || exit 1
+   cd ~/EPNro1/entrada
 
    for archivo in *.txt;
    do
