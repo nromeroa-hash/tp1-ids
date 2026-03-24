@@ -18,7 +18,7 @@ do
 
     case $opcion in 
         1)
-           mkdir -p ~/EPNro1/{entrada, salida, procesado}
+           mkdir -p ~/EPNro1/{entrada,salida,procesado}
            echo "Se creó el entorno en ~/EPNro1"
            ;;
 
