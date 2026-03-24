@@ -4,8 +4,10 @@ cd ~/EPNro1/entrada
 
 for archivo in *.txt;
 do
-    cat "$archivo" >> ~/EPNro1/salida/"$FILENAME".txt
+    if [ -f "$archivo" ]; then
 
-    mv "$archivo" ~/EPNro1/procesado
+         cat "$archivo" >> ~/EPNro1/salida/"$FILENAME".txt
+
+         mv "$archivo" ~/EPNro1/procesado
+    fi
 done
-
