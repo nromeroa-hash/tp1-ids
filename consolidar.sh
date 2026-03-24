@@ -1,13 +1,17 @@
 #!/bin/bash
 
-cd ~/EPNro1/entrada
+while true; 
+do 
+   cd ~/EPNro1/entrada || exit 1
 
-for archivo in *.txt;
-do
-    if [ -f "$archivo" ]; then
+   for archivo in *.txt;
+   do
+        if [ -f "$archivo" ]; then
 
-         cat "$archivo" >> ~/EPNro1/salida/"$FILENAME".txt
+           cat "$archivo" >> ~/EPNro1/salida/"$FILENAME".txt
 
-         mv "$archivo" ~/EPNro1/procesado
-    fi
+           mv "$archivo" ~/EPNro1/procesado
+        fi
+   done
+   sleep 2
 done
