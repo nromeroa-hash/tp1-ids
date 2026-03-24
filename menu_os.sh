@@ -1,13 +1,12 @@
-  GNU nano 7.2                                                                                                                                        menu_os.sh *                                                                                                                                                
 #!/bin/bash
 
-parametro = "$1"
+parametro="$1"
 
 while [ "$opcion" -ne 6 ]; 
 do
     echo "-----MENU-----"
     echo "1) Crear entorno"
-    echo "2) Correr procesor"
+    echo "2) Correr proceso"
     echo "3) Ver listado de alumnos ordenados por padrón"
     echo "4) Ver 10 notas más altas del listado de alumnos"
     echo "5) Ver datos del alumno con padrón: "
