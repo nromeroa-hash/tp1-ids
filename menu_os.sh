@@ -16,56 +16,56 @@ do
    echo -n "Ingrese la opción del menú: "
    read opcion
 
-      case $opcion in 
-         1)
-            mkdir -p ~/EPNro1/{entrada,salida,procesado}
-            echo "Se creó el entorno en ~/EPNro1"
-            ;;
+   case $opcion in 
+      1)
+         mkdir -p ~/EPNro1/{entrada,salida,procesado}
+         echo "Se creó el entorno en ~/EPNro1"
+         ;;
 
-         2)
-            if [ ! -d ~/EPNro1 ]; then
-               echo "Para realizar esta opción primero debe seleccionar la opción 1"
-            else
-  
-               if [ ! -f ~/EPNro1/consolidar.sh ]; then
-                  cp consolidar.sh ~/EPNro1/
-                  chmod +x ~/EPNro1/consolidar.sh
-               fi
+      2)
+         if [ ! -d ~/EPNro1 ]; then
+            echo "Para realizar esta opción primero debe seleccionar la opción 1"
+         else
 
-               echo "Corriendo proceso"
-               nohup ~/EPNro1/consolidar.sh > /dev/null 2>&1 &
+            if [ ! -f ~/EPNro1/consolidar.sh ]; then
+               cp consolidar.sh ~/EPNro1/
+               chmod +x ~/EPNro1/consolidar.sh
             fi
-            ;;
 
-         3)
-            if [ -f ~/EPNro1/salida/"$FILENAME".txt ]; then
-               sort -n ~/EPNro1/salida/"$FILENAME".txt
-            else 
-               echo "No existe el archivo. Primero se debe ejecutar opciones 1 y 2"
-            fi
-            ;;
+            echo "Corriendo proceso"
+            nohup ~/EPNro1/consolidar.sh > /dev/null 2>&1 &
+         fi
+         ;;
 
-         4)
-            if [ -f ~/EPNro1/salida/"$FILENAME".txt ]; then
-                sort -k5  -n  -r ~/EPNro1/salida/"$FILENAME".txt | head -10
-            else 
-               echo "No existe el archivo. Primero se debe ejecutar opciones 1 y 2"
-            fi
-            ;;
+      3)
+         if [ -f ~/EPNro1/salida/"$FILENAME".txt ]; then
+            sort -n ~/EPNro1/salida/"$FILENAME".txt
+         else 
+            echo "No existe el archivo. Primero se debe ejecutar opciones 1 y 2"
+         fi
+         ;;
 
-         5)
-            if [ -f ~/EPNro1/salida/"$FILENAME".txt ]; then
-               echo -n "Ingrese un número de padrón: "
-               read padron
-               grep "$padron" ~/EPNro1/salida/"$FILENAME".txt
-            else echo "No existe el archivo. Primero se debe ejecutar opciones 1 y 2" 
-            fi
-            ;;
+      4)
+         if [ -f ~/EPNro1/salida/"$FILENAME".txt ]; then
+               sort -k5  -n  -r ~/EPNro1/salida/"$FILENAME".txt | head -10
+         else 
+            echo "No existe el archivo. Primero se debe ejecutar opciones 1 y 2"
+         fi
+         ;;
 
-         6)
-            echo "Saliendo..."
-            ;;
-      esac
+      5)
+         if [ -f ~/EPNro1/salida/"$FILENAME".txt ]; then
+            echo -n "Ingrese un número de padrón: "
+            read padron
+            grep "$padron" ~/EPNro1/salida/"$FILENAME".txt
+         else echo "No existe el archivo. Primero se debe ejecutar opciones 1 y 2" 
+         fi
+         ;;
+
+      6)
+         echo "Saliendo..."
+         ;;
+   esac
 done
 
 if [ "$parametro" = "-d" ]; then
